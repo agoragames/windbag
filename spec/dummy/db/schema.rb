@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230195234) do
+ActiveRecord::Schema.define(:version => 20111230215103) do
 
   create_table "snoop_channels", :force => true do |t|
     t.string   "name"
@@ -29,23 +29,29 @@ ActiveRecord::Schema.define(:version => 20111230195234) do
     t.text     "description"
     t.string   "url"
     t.string   "icon"
-    t.boolean  "sticky",           :default => false
+    t.boolean  "sticky",      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "transports"
-    t.integer  "snoop_channel_id"
+    t.integer  "channel_id"
   end
 
-  add_index "snoop_notifications", ["snoop_channel_id"], :name => "index_snoop_notifications_on_snoop_channel_id"
+  add_index "snoop_notifications", ["channel_id"], :name => "index_snoop_notifications_on_channel_id"
 
   create_table "snoop_subscriptions", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "snoop_channel_id"
+    t.integer  "channel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "snoop_subscriptions", ["snoop_channel_id"], :name => "snoop_chan_subs_on_snoop_chan_id"
+  add_index "snoop_subscriptions", ["channel_id"], :name => "snoop_subs_on_chan_id"
   add_index "snoop_subscriptions", ["user_id"], :name => "index_snoop_subscriptions_on_user_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

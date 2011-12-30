@@ -10,11 +10,9 @@ class CreateSnoopNotifications < ActiveRecord::Migration
       t.datetime "created_at"
       t.datetime "updated_at"
       t.string   "transports"
-      t.integer  "snoop_channel_id"
+      t.integer  "channel_id"
     end
 
-    add_index "snoop_notifications", 
-      ["snoop_channel_id"], 
-      :name => "index_snoop_notifications_on_snoop_channel_id"
+    add_index "snoop_notifications", ["channel_id"], :name => "index_snoop_notifications_on_channel_id"
   end
 end
