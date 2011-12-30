@@ -1642,3 +1642,567 @@
   [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.9ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["url", "http://example.com"]]
+  [1m[35mSnoop::Notification Load (0.1ms)[0m  SELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 21:54:54 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["url", "http://example.com"]]
+  [1m[35mSnoop::Notification Load (0.1ms)[0m  SELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.2ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:12:08 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.2ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:12:09 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:12:09 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:12:09 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:12:09 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:18:33 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:18:33 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:18:33 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:18:33 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:18:33 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:18:33 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:18:33 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:18:33 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.1ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:18:57 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["user_id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["user_id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:19:21 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00]]
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["user_id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:20:24 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00]]
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["user_id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:20:25 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 1 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-1-notifications' AND "snoop_channels"."id" != 2) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 1, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:35.347961' WHERE "snoop_channels"."id" = 2[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 2], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 2]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "private-user-2-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 2 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-2-notifications' AND "snoop_channels"."id" != 3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 2, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:35.377564' WHERE "snoop_channels"."id" = 3[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 3 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 3], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["url", "http://example.com"]]
+  [1m[35mSnoop::Notification Load (0.1ms)[0m  SELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 1 AND "snoop_channels"."owner_type" = 'User' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-1-notifications' AND "snoop_channels"."id" != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "snoop_channels" SET "owner_id" = 1, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:35.434995' WHERE "snoop_channels"."id" = 2
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 2], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 2]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "private-user-2-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 2 AND "snoop_channels"."owner_type" = 'User' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-2-notifications' AND "snoop_channels"."id" != 3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "snoop_channels" SET "owner_id" = 2, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:35.443888' WHERE "snoop_channels"."id" = 3
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 3], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 1 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-1-notifications' AND "snoop_channels"."id" != 2) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 1, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:35.460998' WHERE "snoop_channels"."id" = 2[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 2], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 2]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "private-user-2-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 2 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-2-notifications' AND "snoop_channels"."id" != 3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 2, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:35.472880' WHERE "snoop_channels"."id" = 3[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 3], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 1 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-1-notifications' AND "snoop_channels"."id" != 2) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 1, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:35.491682' WHERE "snoop_channels"."id" = 2[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 2 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 2], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 2]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["name", "private-user-2-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 2 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-2-notifications' AND "snoop_channels"."id" != 3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 2, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:35.500027' WHERE "snoop_channels"."id" = 3[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 3 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 3], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:21:35 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 1 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-1-notifications' AND "snoop_channels"."id" != 2) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 1, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:44.307686' WHERE "snoop_channels"."id" = 2[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 2 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 2], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 2]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "private-user-2-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 2 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-2-notifications' AND "snoop_channels"."id" != 3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 2, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:44.333379' WHERE "snoop_channels"."id" = 3[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 3 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 3], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["url", "http://example.com"]]
+  [1m[35mSnoop::Notification Load (0.1ms)[0m  SELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 1]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 1 AND "snoop_channels"."owner_type" = 'User' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-1-notifications' AND "snoop_channels"."id" != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "snoop_channels" SET "owner_id" = 1, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:44.382308' WHERE "snoop_channels"."id" = 2
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 2], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 2]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "private-user-2-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 2 AND "snoop_channels"."owner_type" = 'User' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-2-notifications' AND "snoop_channels"."id" != 3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "snoop_channels" SET "owner_id" = 2, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:44.390718' WHERE "snoop_channels"."id" = 3
+  [1m[36mSnoop::Subscription Load (0.1ms)[0m  [1mSELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["channel_id", 3], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 1 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-1-notifications' AND "snoop_channels"."id" != 2) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 1, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:44.406596' WHERE "snoop_channels"."id" = 2[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 2 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 2], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 2]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "private-user-2-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 2 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-2-notifications' AND "snoop_channels"."id" != 3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 2, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:44.415074' WHERE "snoop_channels"."id" = 3[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 3 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 3], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "global-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-1-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "private-user-1-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 1 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-1-notifications' AND "snoop_channels"."id" != 2) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 1, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:44.431478' WHERE "snoop_channels"."id" = 2[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 1 AND "snoop_subscriptions"."channel_id" = 2 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 2], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "login", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["login", "Magda Schneider"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 2]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "snoop_channels" WHERE "snoop_channels"."name" = 'private-user-2-notifications' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "snoop_channels" ("created_at", "name", "owner_id", "owner_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["name", "private-user-2-notifications"], ["owner_id", nil], ["owner_type", nil], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00]]
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."owner_id" = 2 AND "snoop_channels"."owner_type" = 'User' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "snoop_channels" WHERE ("snoop_channels"."name" = 'private-user-2-notifications' AND "snoop_channels"."id" != 3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "snoop_channels" SET "owner_id" = 2, "owner_type" = 'User', "updated_at" = '2011-12-30 22:21:44.439861' WHERE "snoop_channels"."id" = 3[0m
+  [1m[35mSnoop::Subscription Load (0.1ms)[0m  SELECT "snoop_subscriptions".* FROM "snoop_subscriptions" WHERE "snoop_subscriptions"."user_id" = 2 AND "snoop_subscriptions"."channel_id" = 3 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "snoop_subscriptions" ("channel_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["channel_id", 3], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSnoop::Channel Load (0.1ms)[0m  [1mSELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1[0m
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."name" = 'global-notifications' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "snoop_notifications" ("channel_id", "created_at", "description", "event", "icon", "sticky", "title", "transports", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["channel_id", 1], ["created_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["description", "Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!"], ["event", :some_event], ["icon", "some_icon"], ["sticky", false], ["title", "Some Event"], ["transports", "---\n- Snoop::MockNotificationTransport\n"], ["updated_at", Fri, 30 Dec 2011 22:21:44 UTC +00:00], ["url", "http://example.com"]]
+  [1m[36mSnoop::Notification Load (0.0ms)[0m  [1mSELECT "snoop_notifications".* FROM "snoop_notifications" WHERE "snoop_notifications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSnoop::Channel Load (0.1ms)[0m  SELECT "snoop_channels".* FROM "snoop_channels" WHERE "snoop_channels"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "snoop_subscriptions" ON "users"."id" = "snoop_subscriptions"."user_id" WHERE "snoop_subscriptions"."channel_id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
