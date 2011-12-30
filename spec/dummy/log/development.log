@@ -1,0 +1,35 @@
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (175.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (207.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateSnoopNotifications (20111230195232)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "snoop_notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "event" varchar(255), "title" varchar(255), "description" text, "url" varchar(255), "icon" varchar(255), "sticky" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime, "transports" varchar(255), "snoop_channel_id" integer) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("snoop_notifications")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_snoop_notifications_on_snoop_channel_id" ON "snoop_notifications" ("snoop_channel_id")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111230195232')
+Migrating to CreateSnoopChannels (20111230195233)
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "snoop_channels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "owner_id" integer, "created_at" datetime, "updated_at" datetime, "owner_type" varchar(255)) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("snoop_channels")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_snoop_channels_on_owner_id_and_owner_type" ON "snoop_channels" ("owner_id", "owner_type")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111230195233')
+Migrating to CreateSnoopSubscriptions (20111230195234)
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "snoop_subscriptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "snoop_channel_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("snoop_subscriptions")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "snoop_chan_subs_on_snoop_chan_id" ON "snoop_subscriptions" ("snoop_channel_id")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("snoop_subscriptions")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('snoop_chan_subs_on_snoop_chan_id')[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_snoop_subscriptions_on_user_id" ON "snoop_subscriptions" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111230195234')[0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("snoop_channels")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_snoop_channels_on_owner_id_and_owner_type')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("snoop_notifications")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_snoop_notifications_on_snoop_channel_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("snoop_subscriptions")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_snoop_subscriptions_on_user_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('snoop_chan_subs_on_snoop_chan_id')
