@@ -7,13 +7,13 @@ require "windbag/version"
 Gem::Specification.new do |s|
   s.name        = "windbag"
   s.version     = Windbag::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Windbag."
-  s.description = "TODO: Description of Windbag."
+  s.authors     = ["Logan Koester"]
+  s.email       = ["lkoester@majorleaguegaming.com"]
+  s.homepage    = "http://github.com/agoragames/windbag"
+  s.summary     = "Notification System for Rails 3.1+"
+  s.description = "Windbag is the event notification system extracted from MLG Starcraft Arena"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.markdown"]
 
   s.add_dependency "rails", "~> 3.1.3"
   # s.add_dependency "jquery-rails"
