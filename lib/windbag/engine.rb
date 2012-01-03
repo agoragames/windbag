@@ -1,6 +1,6 @@
-module Snoop
+module Windbag
   class Engine < Rails::Engine
-    isolate_namespace Snoop
+    isolate_namespace Windbag
 
     config.generators do |g|
       g.test_framework :rspec, :view_specs => false

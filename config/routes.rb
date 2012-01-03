@@ -1,2 +1,2 @@
-Snoop::Engine.routes.draw do
+Windbag::Engine.routes.draw do
 end

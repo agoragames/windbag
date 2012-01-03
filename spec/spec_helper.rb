@@ -21,7 +21,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
-    Snoop::Notification.skip_callback :create, :after, :deliver
+    Windbag::Notification.skip_callback :create, :after, :deliver
   end
 
   config.after(:all) do

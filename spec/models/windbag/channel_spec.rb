@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Snoop
+module Windbag
   describe Channel do
     before(:all) do 
       DatabaseCleaner.clean_with :truncation
@@ -26,7 +26,7 @@ module Snoop
       end
 
       let(:user) { @users.first }
-      subject { user.snoop_channel }
+      subject { user.windbag_channel }
 
       it { should_not be_nil }
       its(:name) { should eql "private-user-#{user.id}-notifications" }

@@ -1,4 +1,4 @@
-require "snoop/engine"
+require "windbag/engine"
 
-module Snoop
+module Windbag
 end

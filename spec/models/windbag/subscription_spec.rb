@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Snoop
+module Windbag
   describe Subscription do
     it { should belong_to(:user) }
     it { should belong_to(:channel) }

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Snoop
+module Windbag
   describe Notification do
     before(:all) do
       Notification.set_callback :create, :after, :deliver

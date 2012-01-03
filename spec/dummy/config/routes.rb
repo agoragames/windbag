@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount Snoop::Engine => "/snoop"
+  mount Windbag::Engine => "/windbag"
 end

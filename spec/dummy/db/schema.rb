@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20111230215103) do
 
-  create_table "snoop_channels", :force => true do |t|
+  create_table "windbag_channels", :force => true do |t|
     t.string   "name"
     t.integer  "owner_id"
     t.datetime "created_at"
@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(:version => 20111230215103) do
     t.string   "owner_type"
   end
 
-  add_index "snoop_channels", ["owner_id", "owner_type"], :name => "index_snoop_channels_on_owner_id_and_owner_type"
+  add_index "windbag_channels", ["owner_id", "owner_type"], :name => "index_windbag_channels_on_owner_id_and_owner_type"
 
-  create_table "snoop_notifications", :force => true do |t|
+  create_table "windbag_notifications", :force => true do |t|
     t.string   "event"
     t.string   "title"
     t.text     "description"
@@ -36,17 +36,17 @@ ActiveRecord::Schema.define(:version => 20111230215103) do
     t.integer  "channel_id"
   end
 
-  add_index "snoop_notifications", ["channel_id"], :name => "index_snoop_notifications_on_channel_id"
+  add_index "windbag_notifications", ["channel_id"], :name => "index_windbag_notifications_on_channel_id"
 
-  create_table "snoop_subscriptions", :force => true do |t|
+  create_table "windbag_subscriptions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "channel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "snoop_subscriptions", ["channel_id"], :name => "snoop_subs_on_chan_id"
-  add_index "snoop_subscriptions", ["user_id"], :name => "index_snoop_subscriptions_on_user_id"
+  add_index "windbag_subscriptions", ["channel_id"], :name => "windbag_subs_on_chan_id"
+  add_index "windbag_subscriptions", ["user_id"], :name => "index_windbag_subscriptions_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "login"

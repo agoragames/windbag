@@ -1,7 +1,7 @@
-module Snoop
+module Windbag
   class Notification < ActiveRecord::Base
 
-    belongs_to :channel, :class_name => 'Snoop::Channel'
+    belongs_to :channel, :class_name => 'Windbag::Channel'
     serialize :transports, Array
 
     validates_presence_of :event, :title
@@ -11,7 +11,7 @@ module Snoop
     after_create :deliver
 
     def self.global_channel
-      Snoop::Channel.find_or_create_by_name('global-notifications')
+      Windbag::Channel.find_or_create_by_name('global-notifications')
     end
 
     def deliver

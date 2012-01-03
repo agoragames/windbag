@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :notification, :class => Snoop::Notification do
+  factory :notification, :class => Windbag::Notification do
     event :some_event
     title 'Some Event'
     description 'Some event has occurred... or maybe not. Without a well-tested notification system, how would you know?!'
@@ -9,7 +9,7 @@ FactoryGirl.define do
     transports []
 
     trait :global_channel do
-      channel { Snoop::Notification.global_channel }
+      channel { Windbag::Notification.global_channel }
     end
 
     factory :global_notification, :traits => [:global_channel]
