@@ -13,6 +13,12 @@
 
 ActiveRecord::Schema.define(:version => 20111230215103) do
 
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "windbag_channels", :force => true do |t|
     t.string   "name"
     t.integer  "owner_id"
@@ -47,11 +53,5 @@ ActiveRecord::Schema.define(:version => 20111230215103) do
 
   add_index "windbag_subscriptions", ["channel_id"], :name => "windbag_subs_on_chan_id"
   add_index "windbag_subscriptions", ["user_id"], :name => "index_windbag_subscriptions_on_user_id"
-
-  create_table "users", :force => true do |t|
-    t.string   "login"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

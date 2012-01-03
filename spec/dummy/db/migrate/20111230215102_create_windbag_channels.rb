@@ -1,4 +1,4 @@
-class Windbag < ActiveRecord::Migration
+class CreateWindbagChannels < ActiveRecord::Migration
   def change
 
     create_table :windbag_channels do |t|

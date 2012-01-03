@@ -1,4 +1,4 @@
-class CreateWindbagSubscriptions < ActiveRecord::Migration
+class CreateWindbagNotifications < ActiveRecord::Migration
   def change
     create_table :windbag_notifications do |t|
       t.string   "event"
