@@ -1,9 +1,9 @@
-= Windbag
-=== Notification System for Rails 3.1+
+# Windbag
+### Notification System for Rails 3.1+
 
 **Note: This extraction is incomplete!**
 
-== Overview
+## Overview
 
 Windbag is the event notification system extracted from [MLG Starcraft Arena](https://sc2.majorleaguegaming.com/).
 
@@ -15,6 +15,6 @@ upon creation.
 
 Transports are included for Pusher and ActionMailer, and notifications can be exposed as JSON data as well.
 
-== Todo
+## Todo
 
 * User-selected transport preferences for specific events.
