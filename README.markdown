@@ -15,6 +15,22 @@ upon creation.
 
 Transports are included for Pusher and ActionMailer, and notifications can be exposed as JSON data as well.
 
+## Requirements
+
+  * Rails 3.1.3
+
+## Installation
+
+Add windbag to your Gemfile
+
+    gem 'windbag'
+
+Then run `bundle install`, and migrate up:
+
+    rake windbag:install:migrations
+    rake db:migrate
+
+
 ## Todo
 
 * User-selected transport preferences for specific events.
