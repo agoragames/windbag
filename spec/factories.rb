@@ -9,7 +9,7 @@ FactoryGirl.define do
     transports []
 
     trait :global_channel do
-      channel { Windbag::Notification.global_channel }
+      channel { Windbag.global_channel }
     end
 
     factory :global_notification, :traits => [:global_channel]

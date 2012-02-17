@@ -32,7 +32,7 @@ module Windbag
 
   protected
     def subscribe_to_global_channel
-      subscribe Notification.global_channel
+      subscribe Windbag.global_channel
     end
 
     def create_private_channel

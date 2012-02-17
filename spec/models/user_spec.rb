@@ -28,7 +28,7 @@ describe User do
   context 'channels' do
     describe 'global channel' do
       it 'should automatically subscribe' do
-        Windbag::Notification.global_channel.subscribers.should include(subject)
+        Windbag.global_channel.subscribers.should include(subject)
       end
     end
 

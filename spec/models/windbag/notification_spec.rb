@@ -33,8 +33,8 @@ module Windbag
       before { @users = create_list(:user, 2) }
       subject { create( :global_notification, :transports => [MockNotificationTransport] ) }
       its(:transports) { should include(MockNotificationTransport.to_s) }
-      its(:channel) { should eql Notification.global_channel }
-      its(:channel_name) { should eql Notification.global_channel.name }
+      its(:channel) { should eql Windbag.global_channel }
+      its(:channel_name) { should eql Windbag.global_channel.name }
 
       it 'should be delivered over transports after creation' do
         mock_transport = subject.transports.first.constantize

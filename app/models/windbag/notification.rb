@@ -10,10 +10,6 @@ module Windbag
 
     after_create :deliver
 
-    def self.global_channel
-      Windbag::Channel.find_or_create_by_name('global-notifications')
-    end
-
     def deliver
       self.transports.each do |transport|
         transport.constantize.with(self.id).deliver

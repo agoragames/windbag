@@ -5,13 +5,13 @@ module Windbag
     before(:all) do 
       DatabaseCleaner.clean_with :truncation
     end
-    subject { Notification.global_channel }
+    subject { Windbag.global_channel }
 
     it { should validate_uniqueness_of :name }
 
     context 'global' do
       before { @users = create_list(:user, 2) }
-      subject { Notification.global_channel }
+      subject { Windbag.global_channel }
 
       its(:class) { should eql Channel }
       its(:owner) { should be_nil }
