@@ -14,10 +14,12 @@ module Windbag
   public
     def subscribe(channel)
       Subscription.find_or_create_by_user_id_and_channel_id(self.id, channel.id)
+      self
     end
 
     def unsubscribe(channel)
       Subscription.destroy_all(:user_id => self.id, :channel_id => channel.id)
+      self
     end
 
   protected

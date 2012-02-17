@@ -18,4 +18,10 @@ FactoryGirl.define do
   factory :user do
     login 'Magda Schneider'
   end
+
+  factory :channel, :class => Windbag::Channel do
+    sequence(:name) { |n| "channel_#{n}" }
+    trait(:owned_by_user){ association :owner, :factory => :user }
+    factory :user_channel, :traits => [:owned_by_user]
+  end
 end
